@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lista de Produtos - WND</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="page-container">
+    <header class="topbar">
+      <h1>Why Not Data - Produtos</h1>
+    </header>
+
+    <main class="content">
+      <section class="card card-wide">
+        <div class="card-header">
+          <h2>Produtos cadastrados</h2>
+          <a href="cadastro-produto.html" class="btn btn-primary btn-sm">
+            + Novo produto
+          </a>
+        </div>
+
+        <div id="mensagensLista" class="mensagens"></div>
+
+        <div id="listaProdutos" class="lista-produtos">
+          <!-- cards preenchidos via JS -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Nayra Rocha / Wendy Pedrosa / 4NB / 2025</p>
+    </footer>
+  </div>
+
+  <!-- MODAL DE CONFIRMAÇÃO DE EXCLUSÃO -->
+  <div id="modalExcluir" class="modal-overlay hidden">
+    <div class="modal">
+      <h3>Confirmação de exclusão</h3>
+      <p>
+        Tem certeza que deseja excluir o produto de ID
+        <strong id="modalIdProduto"></strong>?
+      </p>
+      <div class="modal-actions">
+        <button id="btnCancelarExcluir" class="btn btn-secondary">
+          Cancelar
+        </button>
+        <button id="btnConfirmarExcluir" class="btn btn-delete">
+          Excluir
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/lista-produtos.js"></script>
+</body>
+</html>

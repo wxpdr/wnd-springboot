@@ -53,6 +53,23 @@ body {
   font-size: 1.3rem;
 }
 
+/* card mais largo (lista de produtos) */
+.card-wide {
+  max-width: 900px;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.btn-sm {
+  padding: 6px 14px;
+  font-size: 0.8rem;
+}
+
 /* Formulário */
 .form-group {
   margin-bottom: 16px;
@@ -91,12 +108,11 @@ textarea:focus {
   box-shadow: 0 0 0 1px #22c55e40;
 }
 
-/* ⛔ AJUSTE DO TEXTAREA – impede estourar o layout */
 textarea {
-  height: 120px;       /* altura padrão */
-  max-height: 120px;   /* evita crescer verticalmente */
-  resize: none;        /* bloqueia o puxar do canto */
-  overflow-y: auto;    /* scroll interno se passar das linhas */
+  height: 120px;
+  max-height: 120px;
+  resize: none;
+  overflow-y: auto;
 }
 
 small {
@@ -173,6 +189,164 @@ small {
   background: #020617;
   border-top: 1px solid #1f2937;
   color: #9ca3af;
+}
+
+/* LISTA DE PRODUTOS EM CARDS */
+
+.lista-produtos {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Card de cada produto */
+.produto-card {
+  border: 1px solid #1f2937;
+  border-radius: 12px;
+  padding: 16px 18px;
+  background: #020617;
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.7);
+}
+
+.produto-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.produto-id {
+  font-size: 0.78rem;
+  color: #9ca3af;
+}
+
+.produto-nome {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+/* Linhas */
+.produto-linha {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 4px;
+  line-height: 1.4;
+}
+
+.produto-label {
+  font-weight: 600;
+  font-size: 0.87rem;
+}
+
+.produto-valor {
+  font-size: 0.9rem;
+}
+
+.produto-valor-descricao {
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+/* Badge Estoque baixo */
+.badge-low-inline {
+  border: none;
+  border-radius: 999px;
+  padding: 2px 10px;
+  margin-left: 8px;
+  font-size: 0.75rem;
+  background: #b91c1c;
+  color: #fee2e2;
+  font-weight: 600;
+}
+
+/* Botões alterar/excluir */
+.produto-acoes {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.btn-table {
+  padding: 5px 14px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
+.btn-edit {
+  background: #16a34a;
+  color: #e5e7eb;
+}
+
+.btn-delete {
+  background: #b91c1c;
+  color: #fee2e2;
+}
+
+/* ---------------------- */
+/*      MODAL NOVO        */
+/* ---------------------- */
+
+.hidden {
+  display: none !important;
+}
+
+/* overlay do modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+/* quando tiver "hidden", agora realmente some */
+.modal-overlay.hidden {
+  display: none !important;
+}
+
+/* caixa */
+.modal {
+  background: #020617;
+  border-radius: 16px;
+  padding: 24px 26px;
+  max-width: 420px;
+  width: 90%;
+  border: 1px solid #4b5563;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+  animation: aparecer 0.15s ease-out;
+}
+
+@keyframes aparecer {
+  from {
+    transform: scale(0.92);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.modal h3 {
+  font-size: 1.1rem;
+  margin-bottom: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.modal p {
+  font-size: 0.9rem;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
 }
 
 /* Responsivo */

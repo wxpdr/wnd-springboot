@@ -79,10 +79,19 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      const salvo = await resposta.json();
+            const salvo = await resposta.json();
 
-      mostrarMensagem("Produto salvo com sucesso! ID: " + salvo.id, "success");
+      mostrarMensagem(
+        "Produto salvo com sucesso! ID: " + salvo.id + ". Você será redirecionado em breve!",
+      );
+
       form.reset();
+
+      // aguarda 7 segundos para o usuário ler a mensagem e recarrega a tela de cadastro
+      setTimeout(() => {
+        window.location.href = "lista-produtos.html";
+      }, 5000);
+
     } catch (erro) {
       console.error("Erro ao salvar produto", erro);
       mostrarMensagem(

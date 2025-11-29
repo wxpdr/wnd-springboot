@@ -2,6 +2,7 @@ package com.wnd.wndapi.service;
 
 import com.wnd.wndapi.model.Produto;
 import com.wnd.wndapi.repository.ProdutoRepository;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -21,5 +22,17 @@ public class ProdutoService {
 
     public Produto salvar(Produto produto) {
         return produtoRepository.save(produto);
+    }
+
+    public Produto buscarPorId(Long id) {
+        return produtoRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Produto não encontrado"));
+    }
+
+    public void excluir(Long id) {
+        if (!produtoRepository.existsById(id)) {
+            throw new EntityNotFoundException("Produto não encontrado");
+        }
+        produtoRepository.deleteById(id);
     }
 }
