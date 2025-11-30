@@ -5,53 +5,110 @@
   <title>Lista de Produtos - WND</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
+  <!-- Container que envolve toda a página (topo + conteúdo + rodapé) -->
   <div class="page-container">
+
+    <!--   ===   TOPO / CABEÇALHO   ===   -->
     <header class="topbar">
       <h1>Why Not Data - Produtos</h1>
     </header>
 
+    <!--   ===   CONTEÚDO CENTRAL   ===   -->
     <main class="content">
+
+      <!-- Card mais largo, usado especificamente para exibição da lista -->
       <section class="card card-wide">
+
+        <!-- Cabeçalho do card com título + botão "Novo produto" -->
         <div class="card-header">
           <h2>Produtos cadastrados</h2>
+
+          <!--
+            Botão que leva o usuário para a tela de cadastro.
+            Ele NÃO faz nada de back-end sozinho.
+            Apenas redireciona para cadastro-produto.html
+          -->
           <a href="cadastro-produto.html" class="btn btn-primary btn-sm">
             + Novo produto
           </a>
         </div>
 
+        <!-- Div onde aparecem mensagens de erro/sucesso da listagem -->
         <div id="mensagensLista" class="mensagens"></div>
 
+        <!--
+          Aqui é onde o JS vai inserir dinamicamente
+          cada card de produto.
+          
+          O arquivo lista-produtos.js faz:
+            - GET /api/produtos
+            - cria <article class="produto-card"> para cada produto
+            - insere dentro desse container
+        -->
         <div id="listaProdutos" class="lista-produtos">
           <!-- cards preenchidos via JS -->
         </div>
+
       </section>
     </main>
 
+    <!--   ===   RODAPÉ DO PROJETO   ===   -->
     <footer class="footer">
       <p>Nayra Rocha / Wendy Pedrosa / 4NB / 2025</p>
     </footer>
   </div>
 
-  <!-- MODAL DE CONFIRMAÇÃO DE EXCLUSÃO -->
+  <!--
+    ===   MODAL DE CONFIRMAÇÃO DE EXCLUSÃO   ===
+
+    Essa parte NÃO aparece na tela inicialmente,
+    porque começa com a classe "hidden" no overlay.
+
+    O JS controla assim:
+      - abrirModalExcluir(id) → remove .hidden e mostra o modal
+      - fecharModalExcluir() → adiciona .hidden e fecha
+      - btnConfirmarExcluir → chama DELETE /api/produtos/{id}
+      - btnCancelarExcluir → apenas esconde o modal
+  -->
   <div id="modalExcluir" class="modal-overlay hidden">
     <div class="modal">
+
       <h3>Confirmação de exclusão</h3>
+
+      <!-- O JS coloca aqui dentro o ID do produto escolhido -->
       <p>
         Tem certeza que deseja excluir o produto de ID
         <strong id="modalIdProduto"></strong>?
       </p>
+
       <div class="modal-actions">
+        <!-- Botão que só fecha o modal -->
         <button id="btnCancelarExcluir" class="btn btn-secondary">
           Cancelar
         </button>
+
+        <!-- Botão que dispara DELETE no back-end -->
         <button id="btnConfirmarExcluir" class="btn btn-delete">
           Excluir
         </button>
       </div>
+
     </div>
   </div>
 
+  <!--
+    Script principal desta tela.
+    
+    lista-produtos.js faz:
+      - Ao carregar a página: GET /api/produtos
+      - Monta os cards
+      - Configura botões de Alterar e Excluir
+      - Controla todo o modal
+      - Ao excluir: DELETE /api/produtos/{id}
+      - Recarrega a lista após a exclusão
+  -->
   <script src="js/lista-produtos.js"></script>
 </body>
 </html>

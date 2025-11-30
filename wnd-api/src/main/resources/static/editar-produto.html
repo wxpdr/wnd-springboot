@@ -6,50 +6,85 @@
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
+  <!-- Container geral da página (topo + conteúdo + rodapé) -->
   <div class="page-container">
+
+    <!--   ===   TOPO / CABEÇALHO   ===   -->
     <header class="topbar">
       <h1>Why Not Data - Produtos</h1>
     </header>
 
+    <!--   ===   CONTEÚDO CENTRAL   ===   -->
     <main class="content">
+      <!-- Card visual que centraliza o formulário de edição -->
       <section class="card">
         <h2>Alterar produto</h2>
 
+        <!-- Aqui aparecem mensagens de erro/sucesso de edição (controladas pelo JS editar-produto.js) -->
         <div id="mensagensEditar" class="mensagens"></div>
 
+        <!--
+          ===   FORMULÁRIO DE ALTERAÇÃO   ===
+
+          Essa tela é carregada quando o usuário clica em "Alterar" em lista-produtos.html.
+          A URL vem assim: editar-produto.html?id=ALGUM_ID
+
+          O JS (editar-produto.js) faz:
+            - lê o ID da URL
+            - chama GET /api/produtos/{id}
+            - preenche os campos abaixo com os dados do produto vindo do back-end
+            - ao salvar, manda PUT /api/produtos/{id} com os valores alterados
+        -->
         <form id="formProdutoEditar">
+          <!-- Campo: Nome do produto -->
           <div class="form-group">
             <label for="nome">Nome do produto</label>
+            <!-- preenchido automaticamente pelo JS com produto.nome -->
             <input type="text" id="nome" name="nome" required />
           </div>
 
+          <!-- Campo: Descrição -->
           <div class="form-group">
             <label for="descricao">Descrição</label>
+
+            <!-- textarea preenchida com produto.descricao pelo JS -->
             <textarea id="descricao" name="descricao" minlength="10"></textarea>
             <small>Mínimo de 10 caracteres.</small>
           </div>
 
+          <!-- Linha com Preço e Quantidade lado a lado -->
           <div class="form-row">
+
+            <!-- Campo: Preço -->
             <div class="form-group">
               <label for="preco">Preço (R$)</label>
+              <!-- JS coloca aqui o produto.preco vindo do back-end -->
               <input type="number" id="preco" name="preco" min="0" step="0.01" />
             </div>
 
+            <!-- Campo: Quantidade em estoque -->
             <div class="form-group">
               <label for="quantidadeEstoque">Quantidade em estoque</label>
+              <!-- JS coloca aqui produto.quantidadeEstoque -->
               <input type="number" id="quantidadeEstoque" name="quantidadeEstoque" min="0" />
             </div>
           </div>
 
+          <!-- Campo: Fabricante -->
           <div class="form-group">
             <label for="fabricante">Fabricante</label>
+            <!-- preenchido com produto.fabricante vindo do back -->
             <input type="text" id="fabricante" name="fabricante" required />
           </div>
 
+          <!-- Botões de ação -->
           <div class="form-actions">
+            <!-- Botão que apenas redireciona para a lista de produtos (controlado no JS) -->
             <button type="button" id="btnCancelar" class="btn btn-secondary">
               Voltar para a lista
             </button>
+
+            <!-- Botão que dispara o submit e chama a função de atualização no JS -->
             <button type="submit" class="btn btn-primary">
               Salvar alterações
             </button>
@@ -58,11 +93,22 @@
       </section>
     </main>
 
+    <!--   ===   RODAPÉ   ===   -->
     <footer class="footer">
       <p>Nayra Rocha / Wendy Pedrosa / 4NB / 2025</p>
     </footer>
   </div>
 
+  <!--
+    ===   SCRIPT DE EDIÇÃO   ===
+
+    Esse arquivo controla tudo nesta tela:
+      - lê o ID da URL (editar-produto.html?id=...)
+      - chama GET /api/produtos/{id} para carregar os dados
+      - preenche o formulário
+      - ao enviar, chama PUT /api/produtos/{id}
+      - trata erros de validação e mostra mensagens na div #mensagensEditar
+  -->
   <script src="js/editar-produto.js"></script>
 </body>
 </html>

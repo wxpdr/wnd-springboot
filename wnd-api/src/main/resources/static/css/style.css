@@ -1,163 +1,171 @@
-/* Reset simples */
+/* Reset simples — tira espaçamentos padrão e deixa tudo mais previsível */
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  box-sizing: border-box; /* calcula largura/altura incluindo bordas */
+  margin: 0; /* zera margens padrão */
+  padding: 0; /* zera espaçamentos padrão */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; /* fonte geral */
 }
 
 body {
-  background: #0f172a;
-  color: #e5e7eb;
-  min-height: 100vh;
+  background: #0f172a; /* fundo escuro */
+  color: #e5e7eb; /* texto claro para contraste */
+  min-height: 100vh; /* garante que o body ocupe a altura inteira da tela */
 }
 
 .page-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  display: flex; /* organiza o layout usando flexbox */
+  flex-direction: column; /* empilha os elementos verticalmente */
+  min-height: 100vh; /* garante altura total */
 }
 
-/* Topo */
+/* Topo da página */
 .topbar {
-  background: #1e293b;
-  padding: 16px 24px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  background: #1e293b; /* fundo cinza-azulado */
+  padding: 16px 24px; /* espaçamento interno */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); /* leve sombra no topo */
 }
 
 .topbar h1 {
-  font-size: 1.4rem;
+  font-size: 1.4rem; /* tamanho do título */
 }
 
-/* Conteúdo */
+/* Área principal da página */
 .content {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 32px 16px;
+  flex: 1; /* ocupa todo o espaço disponível */
+  display: flex; /* centralização com flexbox */
+  justify-content: center; /* centraliza horizontalmente */
+  align-items: flex-start; /* alinha o conteúdo ao topo */
+  padding: 32px 16px; /* espaçamento interno */
 }
 
+/* Caixa principal */
 .card {
-  background: #020617;
-  padding: 24px 24px 20px;
-  border-radius: 16px;
-  width: 100%;
-  max-width: 640px;
-  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.8);
-  border: 1px solid #1f2937;
+  background: #020617; /* fundo escuro */
+  padding: 24px 24px 20px; /* espaçamento interno */
+  border-radius: 16px; /* cantos arredondados */
+  width: 100%; /* ocupa toda a largura possível */
+  max-width: 640px; /* limite máximo */
+  box-shadow: 0 10px 25px rgba(15, 23, 42, 0.8); /* sombra forte */
+  border: 1px solid #1f2937; /* borda suave */
 }
 
 .card h2 {
-  margin-bottom: 16px;
-  font-size: 1.3rem;
+  margin-bottom: 16px; /* espaço abaixo do título */
+  font-size: 1.3rem; /* tamanho do título */
 }
 
-/* card mais largo (lista de produtos) */
+/* Card mais largo usado na listagem */
 .card-wide {
-  max-width: 900px;
+  max-width: 900px; /* aumenta o tamanho */
 }
 
 .card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: flex; /* coloca elementos lado a lado */
+  justify-content: space-between; /* um de cada lado */
+  align-items: center; /* centraliza verticalmente */
   margin-bottom: 16px;
 }
 
 .btn-sm {
-  padding: 6px 14px;
+  padding: 6px 14px; /* botão pequeno */
   font-size: 0.8rem;
 }
 
-/* Formulário */
+/* Formulário - espaçamentos e layout */
 .form-group {
-  margin-bottom: 16px;
+  margin-bottom: 16px; /* distância entre inputs */
 }
 
 .form-row {
-  display: flex;
-  gap: 16px;
+  display: flex; /* inputs lado a lado */
+  gap: 16px; /* espaço entre eles */
 }
 
 .form-row .form-group {
-  flex: 1;
+  flex: 1; /* cada input pega metade */
 }
 
 label {
-  display: block;
+  display: block; /* faz o label ficar acima do input */
   margin-bottom: 4px;
   font-size: 0.9rem;
 }
 
+/* Inputs e textarea */
 input,
 textarea {
-  width: 100%;
-  padding: 8px 10px;
-  border-radius: 8px;
-  border: 1px solid #4b5563;
-  background: #020617;
-  color: #e5e7eb;
+  width: 100%; /* ocupa a largura toda */
+  padding: 8px 10px; /* espaço interno */
+  border-radius: 8px; /* cantos arredondados */
+  border: 1px solid #4b5563; /* borda discreta */
+  background: #020617; /* fundo escuro */
+  color: #e5e7eb; /* texto claro */
   font-size: 0.95rem;
 }
 
+/* Estilo quando o input está selecionado */
 input:focus,
 textarea:focus {
-  outline: none;
-  border-color: #22c55e;
-  box-shadow: 0 0 0 1px #22c55e40;
+  outline: none; /* tira o contorno azul padrão */
+  border-color: #22c55e; /* borda verde */
+  box-shadow: 0 0 0 1px #22c55e40; /* sombra verde suave */
 }
 
+/* Campo de texto fixo, sem aumentar */
 textarea {
-  height: 120px;
+  height: 120px; /* altura fixa */
   max-height: 120px;
-  resize: none;
-  overflow-y: auto;
+  resize: none; /* impede redimensionamento */
+  overflow-y: auto; /* barra de rolagem interna */
 }
 
 small {
   display: block;
   margin-top: 4px;
   font-size: 0.75rem;
-  color: #9ca3af;
+  color: #9ca3af; /* cinza claro */
 }
 
-/* Botões */
+/* Botões de formulário */
 .form-actions {
   margin-top: 8px;
   display: flex;
   gap: 8px;
-  justify-content: flex-end;
+  justify-content: flex-end; /* deixa os botões à direita */
 }
 
+/* Estilo geral dos botões */
 .btn {
   border: none;
-  border-radius: 999px;
+  border-radius: 999px; /* formato de pílula */
   padding: 8px 18px;
-  cursor: pointer;
+  cursor: pointer; /* mostra mãozinha */
   font-size: 0.9rem;
-  transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.15s ease;
+  transition: transform 0.08s ease, box-shadow 0.08s ease, background 0.15s ease; /* animações suaves */
 }
 
+/* Botão verde */
 .btn-primary {
-  background: linear-gradient(90deg, #22c55e, #16a34a);
+  background: linear-gradient(90deg, #22c55e, #16a34a); /* degradê */
   color: #022c22;
   font-weight: 600;
-  box-shadow: 0 6px 16px rgba(34, 197, 94, 0.45);
+  box-shadow: 0 6px 16px rgba(34, 197, 94, 0.45); /* brilho verde */
 }
 
+/* Botão escuro */
 .btn-secondary {
   background: #111827;
   color: #e5e7eb;
   border: 1px solid #4b5563;
 }
 
+/* Efeito hover geral dos botões */
 .btn:hover {
-  transform: translateY(-1px);
+  transform: translateY(-1px); /* sobe 1px */
   box-shadow: 0 8px 20px rgba(15, 23, 42, 0.7);
 }
 
-/* Mensagens */
+/* Mensagens de erro/sucesso */
 .mensagens {
   margin-bottom: 16px;
 }
@@ -169,12 +177,14 @@ small {
   margin-bottom: 8px;
 }
 
+/* Caixa verde */
 .alert-success {
   background: #022c22;
   border: 1px solid #16a34a;
   color: #bbf7d0;
 }
 
+/* Caixa vermelha */
 .alert-error {
   background: #450a0a;
   border: 1px solid #f97373;
@@ -183,7 +193,7 @@ small {
 
 /* Rodapé */
 .footer {
-  text-align: center;
+  text-align: center; /* centralizado */
   padding: 12px 8px;
   font-size: 0.8rem;
   background: #020617;
@@ -191,15 +201,14 @@ small {
   color: #9ca3af;
 }
 
-/* LISTA DE PRODUTOS EM CARDS */
-
+/* Lista de produtos em forma de coluna */
 .lista-produtos {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 20px; /* espaço entre os cards */
 }
 
-/* Card de cada produto */
+/* Card individual de produto */
 .produto-card {
   border: 1px solid #1f2937;
   border-radius: 12px;
@@ -208,6 +217,7 @@ small {
   box-shadow: 0 8px 18px rgba(15, 23, 42, 0.7);
 }
 
+/* Cabeçalho do card */
 .produto-header {
   display: flex;
   align-items: baseline;
@@ -225,7 +235,7 @@ small {
   font-weight: 600;
 }
 
-/* Linhas */
+/* Linhas de informação do produto */
 .produto-linha {
   display: flex;
   gap: 6px;
@@ -244,10 +254,10 @@ small {
 
 .produto-valor-descricao {
   max-width: 100%;
-  word-wrap: break-word;
+  word-wrap: break-word; /* quebra linhas para não estourar */
 }
 
-/* Badge Estoque baixo */
+/* Badge vermelho de estoque baixo */
 .badge-low-inline {
   border: none;
   border-radius: 999px;
@@ -259,12 +269,12 @@ small {
   font-weight: 600;
 }
 
-/* Botões alterar/excluir */
+/* Botões de editar/excluir */
 .produto-acoes {
   margin-top: 10px;
   display: flex;
   gap: 10px;
-  justify-content: center;
+  justify-content: center; /* centraliza os botões */
 }
 
 .btn-table {
@@ -283,31 +293,32 @@ small {
   color: #fee2e2;
 }
 
-/* ---------------------- */
-/*      MODAL NOVO        */
-/* ---------------------- */
+/* ===================== */
+/*      MODAL DE EXCLUIR */
+/* ===================== */
 
+/* Classe usada para esconder elementos completamente */
 .hidden {
   display: none !important;
 }
 
-/* overlay do modal */
+/* Fundo escuro atrás do modal */
 .modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(15, 23, 42, 0.55);
+  position: fixed; /* fica fixo na tela */
+  inset: 0; /* ocupa a tela toda (top, bottom, left, right = 0) */
+  background: rgba(15, 23, 42, 0.55); /* fundo escuro transparente */
   display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
+  align-items: center; /* centraliza verticalmente */
+  justify-content: center; /* centraliza horizontalmente */
+  z-index: 2000; /* fica acima de tudo */
 }
 
-/* quando tiver "hidden", agora realmente some */
+/* garante que quando tem hidden, realmente some */
 .modal-overlay.hidden {
   display: none !important;
 }
 
-/* caixa */
+/* Caixa do modal */
 .modal {
   background: #020617;
   border-radius: 16px;
@@ -316,16 +327,17 @@ small {
   width: 90%;
   border: 1px solid #4b5563;
   box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
-  animation: aparecer 0.15s ease-out;
+  animation: aparecer 0.15s ease-out; /* animação de entrada */
 }
 
+/* animação do modal */
 @keyframes aparecer {
   from {
-    transform: scale(0.92);
-    opacity: 0;
+    transform: scale(0.92); /* começa menor */
+    opacity: 0; /* começa invisível */
   }
   to {
-    transform: scale(1);
+    transform: scale(1); /* tamanho normal */
     opacity: 1;
   }
 }
@@ -349,13 +361,13 @@ small {
   gap: 14px;
 }
 
-/* Responsivo */
+/* Responsividade para telas menores */
 @media (max-width: 640px) {
   .card {
-    padding: 20px 16px;
+    padding: 20px 16px; /* diminui espaçamentos */
   }
 
   .form-row {
-    flex-direction: column;
+    flex-direction: column; /* coloca inputs um abaixo do outro */
   }
 }

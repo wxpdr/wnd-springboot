@@ -5,60 +5,112 @@
   <title>Cadastro de Produto - WND</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
+  <!-- Container geral que define o layout vertical da página -->
   <div class="page-container">
+
+    <!--   ===   TOPO / CABEÇALHO   ===
+         Essa barra escura superior é fixa em todas as telas.
+    -->
     <header class="topbar">
       <h1>Why Not Data - Cadastro de Produto</h1>
     </header>
 
+    <!--   ===   CONTEÚDO CENTRAL DA PÁGINA   === -->
     <main class="content">
+
+      <!-- Card visual que centraliza e estiliza o formulário -->
       <section class="card">
         <h2>Novo Produto</h2>
 
+        <!-- Aqui vão aparecer mensagens de erro e sucesso geradas pelo JS -->
         <div id="mensagens" class="mensagens"></div>
 
+        <!--
+            ===   FORMULÁRIO DE CADASTRO   ===
+            Esse formulário NÃO envia dados sozinho.
+            O JS (cadastro-produto.js) intercepta o submit
+            e faz o POST para /api/produtos.
+        -->
         <form id="formProduto" novalidate>
+
+          <!-- Campo: Nome -->
           <div class="form-group">
             <label for="nome">Nome do produto</label>
+            <!-- O JS pega esse valor com document.getElementById("nome").value -->
             <input type="text" id="nome" name="nome" required />
           </div>
 
+          <!-- Campo: Descrição -->
           <div class="form-group">
             <label for="descricao">Descrição</label>
+
+            <!-- textarea porque pode ter várias linhas -->
             <textarea id="descricao" name="descricao" rows="3" required></textarea>
+
+            <!-- Dica visual para o usuário; a validação real acontece no back-end -->
             <small>Mínimo de 10 caracteres.</small>
           </div>
 
+          <!-- Linha de campos lado a lado (Preço e Quantidade) -->
           <div class="form-row">
+
+            <!-- Campo: Preço -->
             <div class="form-group">
               <label for="preco">Preço (R$)</label>
+
+              <!-- step e min ajudam no controle do número -->
               <input type="number" id="preco" name="preco" step="0.01" min="0.01" required />
             </div>
 
+            <!-- Campo: Quantidade -->
             <div class="form-group">
               <label for="quantidade">Quantidade em estoque</label>
+
+              <!-- Esse valor vira quantidadeEstoque no back-end -->
               <input type="number" id="quantidade" name="quantidade" min="1" required />
             </div>
+
           </div>
 
+          <!-- Campo: Fabricante -->
           <div class="form-group">
             <label for="fabricante">Fabricante</label>
+
+            <!-- O JS pega esse valor e transforma em produto.fabricante -->
             <input type="text" id="fabricante" name="fabricante" required />
           </div>
 
+          <!-- Botões de ação -->
           <div class="form-actions">
+
+            <!-- Botão que dispara o JS de salvarProduto() -->
             <button type="submit" class="btn btn-primary">Salvar produto</button>
+
+            <!-- Botão que apenas limpa os campos, sem mexer no back-end -->
             <button type="reset" class="btn btn-secondary">Limpar</button>
           </div>
+
         </form>
       </section>
     </main>
 
-    <<footer class="footer">
-  <p>Nayra Rocha / Wendy Pedrosa / 4NB / 2025</p>
-</footer>
+    <!--   ===   RODAPÉ DO PROJETO   ===   -->
+    <footer class="footer">
+      <p>Nayra Rocha / Wendy Pedrosa / 4NB / 2025</p>
+    </footer>
+
   </div>
 
+  <!--   ===   SCRIPT PRINCIPAL DA PÁGINA   ===
+         Esse arquivo controla TODO o fluxo do formulário:
+         - pegar valores digitados
+         - chamar POST /api/produtos
+         - tratar erros
+         - redirecionar após salvar
+  -->
   <script src="js/cadastro-produto.js"></script>
+
 </body>
 </html>
