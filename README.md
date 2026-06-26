@@ -182,24 +182,16 @@ http://localhost:8080/h2-console
 
 ---
 
-## 🖼️ Preview
+## 🖥️ Demonstração
 
-Caso queira adicionar capturas futuramente, uma sugestão de estrutura seria:
+Este projeto não possui deploy ou capturas de tela disponíveis no momento.
 
-```md
-## 🖼️ Preview
+A aplicação foi desenvolvida para execução local, com foco na construção da API REST, integração com o front-end e prática de conceitos como CRUD, validação de dados, persistência com H2 e organização em camadas.
 
-### Listagem de produtos
+Para visualizar o funcionamento, é necessário executar o projeto localmente e acessar a aplicação pelo navegador em:
 
-![Preview da listagem](./imagens-readme/preview-listagem.png)
-
-### Cadastro de produto
-
-![Preview do cadastro](./imagens-readme/preview-cadastro.png)
-
-### Edição de produto
-
-![Preview da edição](./imagens-readme/preview-edicao.png)
+```text
+http://localhost:8080
 ```
 
 ---
@@ -225,23 +217,6 @@ Durante o desenvolvimento deste projeto, pratiquei:
 * consumo de API com Fetch API;
 * criação de CRUD completo;
 * estruturação de README técnico no GitHub.
-
----
-
-## 🔮 Possíveis melhorias futuras
-
-Algumas melhorias possíveis para versões futuras:
-
-* adicionar deploy da aplicação;
-* trocar H2 por MySQL ou PostgreSQL;
-* melhorar a responsividade da interface;
-* adicionar autenticação;
-* criar testes automatizados;
-* melhorar tratamento visual de erros;
-* adicionar paginação e filtros;
-* documentar a API com Swagger/OpenAPI;
-* separar melhor os recursos estáticos do front-end;
-* aprimorar a acessibilidade das telas.
 
 ---
 
